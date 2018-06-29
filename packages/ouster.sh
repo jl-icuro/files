@@ -2,8 +2,6 @@
 
 xterm -e bash -c '
 
-sudo apt-get install dnsmasq
-
 bash ~/ros_ws/ouster_ws/src/ouster_example/ouster_ros/connectos1.sh
 
 ' &
