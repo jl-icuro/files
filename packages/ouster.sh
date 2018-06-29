@@ -2,13 +2,6 @@
 
 xterm -e bash -c '
 
-bash ~/ros_ws/ouster_ws/src/ouster_example/ouster_ros/connectos1.sh
-
-' &
-
-
-xterm -e bash -c '
-
 source ~/ros_ws/ouster_ws/devel/setup.bash;
 
 read -p "Enter Ouster IP: " HOSTNAME;
