@@ -94,6 +94,10 @@ subs :
   - name : IMU
     desc : IMU desc sample
     subs :
+      - name : Ouster IMU
+        desc : Ouster IMU desc sample
+        probe:
+        run  : do_shell_exec "$(rospack find runtime_manager)/scripts/ouster_imu.sh"    
       - name : Bosch bno055
         desc : Bosch bno055 desc sample
         probe:
