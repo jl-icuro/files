@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Install CUDA
+sudo apt-get install -y wget
 cd ~
 mkdir cuda-9.0
 cd cuda-9.0
@@ -49,7 +50,7 @@ cd tensorflow
 git clone https://github.com/tensorflow/models.git
 
 # Install Protobuf and compile protobuf
-sudo apt-get install -y wget unzip
+sudo apt-get install -y unzip
 cd ~
 mkdir protobuf
 cd protobuf
