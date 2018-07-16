@@ -17,14 +17,14 @@ sudo apt-get -y install cuda-9-0
 
 # Fix bashrc
 echo "# Fix CUDA Path and Links" >> ~/.bashrc
-echo "export PATH=$PATH:/usr/local/cuda-9.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"  >> ~/.bashrc
+echo "export PATH=$PATH:/usr/local/cuda-9.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/home/$USER/protobuf/bin"  >> ~/.bashrc
 echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-9.0/lib64:" >> ~/.bashrc
+echo "export PYTHONPATH=/home/$USER/caffe/python:$PYTHONPATH:/home/$USER/tensorflow/models/research:/home/$USER/tensorflow/models/research/slim" >> ~/.bashrc
 
 # Install cuDNN
 cd ~
 mkdir cuDNN
 cd cuDNN
-# This persons github, not mine
 wget https://github.com/ashokpant/cudnn_archive/raw/master/v7.0/libcudnn7_7.0.5.15-1+cuda9.0_amd64.deb
 sudo dpkg -i libcudnn7_7.0.5.15-1+cuda9.0_amd64.deb
 sudo apt-get update
@@ -57,12 +57,12 @@ wget https://github.com/google/protobuf/releases/download/v3.5.1/protoc-3.5.1-li
 unzip protoc-3.5.1-linux-x86_64.zip
 
 # Link protobuf and tensorflow
-echo "export PATH=$PATH:/home/$USER/protobuf/bin" >> ~/.bashrc
-echo "export PYTHONPATH=/home/$USER/caffe/python:$PYTHONPATH:/home/$USER/tensorflow/models/research:/home/$USER/tensorflow/models/research/slim" >> ~/.bashrc
 
 # Compile protobuf libraries
-source ~/.bashrc
 cd /home/$USER/tensorflow/models/research
+export PATH=$PATH:/usr/local/cuda-9.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/home/$USER/protobuf/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-9.0/lib64:
+export PYTHONPATH=/home/$USER/caffe/python:$PYTHONPATH:/home/$USER/tensorflow/models/research:/home/$USER/tensorflow/models/research/slim
 protoc object_detection/protos/*.proto --python_out=.
 
 # Install tensorflow
