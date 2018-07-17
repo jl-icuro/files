@@ -68,3 +68,10 @@ protoc object_detection/protos/*.proto --python_out=.
 
 # Install tensorflow
 sudo pip install tensorflow-gpu
+
+# Install COCO API
+cd ~
+git clone https://github.com/cocodataset/cocoapi.git
+cd cocoapi/PythonAPI
+make
+cp -r pycocotools ~/tensorflow/models/research/
