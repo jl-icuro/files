@@ -48,6 +48,8 @@ cd ~
 mkdir tensorflow
 cd tensorflow
 git clone https://github.com/tensorflow/models.git
+cd models
+git checkout 02a9969e94feb51966f9bacddc1836d811f8ce69
 
 # Install Protobuf and compile protobuf
 sudo apt-get install -y unzip
